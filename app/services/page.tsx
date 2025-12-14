@@ -33,13 +33,13 @@ export default function Services() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black px-6 py-24">
+    <div className="min-h-screen bg-white px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
-          <h1 className="text-5xl font-semibold text-black dark:text-white mb-6">
+          <h1 className="text-5xl font-semibold text-brown-dark mb-6">
             Our Services
           </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-xl text-brown-medium max-w-2xl mx-auto">
             Comprehensive solutions designed to meet your unique needs and drive
             exceptional results.
           </p>
@@ -49,12 +49,12 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group rounded-2xl bg-white dark:bg-zinc-900 p-8 border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-400 dark:hover:border-zinc-600 hover:shadow-lg"
+              className="group rounded-2xl bg-pink-light p-8 border border-pink-medium transition-all hover:border-pink-dark hover:shadow-lg"
             >
-              <h3 className="text-2xl font-semibold text-black dark:text-white mb-4">
+              <h3 className="text-2xl font-semibold text-brown-dark mb-4">
                 {service.title}
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-brown-medium leading-relaxed">
                 {service.description}
               </p>
             </div>
