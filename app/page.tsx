@@ -1,26 +1,37 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-12">
-      <h1 className="text-3xl font-bold mb-8 tracking-tight text-[#7A3940]">Skincare AI Hub</h1>
+    <div className="min-h-screen bg-zinc-50 dark:bg-black">
+      <div className="flex min-h-screen items-center justify-center px-6 pt-20">
+        <main className="mx-auto max-w-5xl text-center">
+          <h1 className="text-7xl font-thin tracking-wider text-black dark:text-white mb-6">
+            DEW
+          </h1>
+          <p className="text-2xl text-zinc-600 dark:text-zinc-400 mb-4 max-w-2xl mx-auto leading-relaxed">
+            Innovation Meets Excellence
+          </p>
+          <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-12 max-w-xl mx-auto">
+            Transform the way you work and live with cutting-edge solutions
+            designed for the modern world.
+          </p>
 
-      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Link href="/wars" className="block p-8 rounded-3xl border border-[#F3E6E8] bg-white/70 shadow-sm transform hover:scale-[1.02] transition">
-          <h2 className="text-2xl font-serif font-medium text-[#A42A3A]">War</h2>
-          <p className="text-sm text-[#7A5E53] mt-2">Tactical overview and details.</p>
-        </Link>
-
-        <Link href="/analysis" className="block p-8 rounded-3xl border border-[#ECE6E0] bg-white/70 shadow-sm transform hover:scale-[1.02] transition">
-          <h2 className="text-2xl font-serif font-medium text-[#8E5D4A]">Analysis</h2>
-          <p className="text-sm text-[#7A5E53] mt-2">AI-driven insights and reports.</p>
-        </Link>
-
-        <Link href="/routine-builder" className="block p-8 rounded-3xl border border-[#F5E9E9] bg-white/70 shadow-sm transform hover:scale-[1.02] transition">
-          <h2 className="text-2xl font-serif font-medium text-[#9F2A3A]">Routine Builder</h2>
-          <p className="text-sm text-[#7A5E53] mt-2">Open the smart skincare routine builder.</p>
-        </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/signup"
+              className="rounded-full bg-black dark:bg-white px-8 py-3 text-sm font-medium text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/services"
+              className="rounded-full border border-zinc-300 dark:border-zinc-700 px-8 py-3 text-sm font-medium text-black dark:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
+        </main>
       </div>
-    </main>
-  )
+    </div>
+  );
 }
