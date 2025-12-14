@@ -1,12 +1,12 @@
 export default function About() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black px-6 py-24">
+    <div className="min-h-screen bg-white px-6 py-24">
       <div className="mx-auto max-w-4xl">
-        <h1 className="text-5xl font-semibold text-black dark:text-white mb-6">
+        <h1 className="text-5xl font-semibold text-brown-dark mb-6">
           About Us
         </h1>
 
-        <div className="space-y-6 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+        <div className="space-y-6 text-lg leading-8 text-brown-medium">
           <p>
             Welcome to DEW, where innovation meets excellence. We are dedicated to
             providing exceptional solutions that transform the way you work and live.
@@ -26,31 +26,31 @@ export default function About() {
         </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
-          <div className="rounded-2xl bg-white dark:bg-zinc-900 p-8 border border-zinc-200 dark:border-zinc-800">
-            <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
+          <div className="rounded-2xl bg-pink-light p-8 border border-pink-medium">
+            <h3 className="text-xl font-semibold text-brown-dark mb-3">
               Our Vision
             </h3>
-            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="text-brown-medium leading-relaxed">
               To be the leading force in innovation, creating solutions that shape
               the future.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white dark:bg-zinc-900 p-8 border border-zinc-200 dark:border-zinc-800">
-            <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
+          <div className="rounded-2xl bg-pink-light p-8 border border-pink-medium">
+            <h3 className="text-xl font-semibold text-brown-dark mb-3">
               Our Mission
             </h3>
-            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="text-brown-medium leading-relaxed">
               To deliver exceptional value through cutting-edge technology and
               unparalleled service.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white dark:bg-zinc-900 p-8 border border-zinc-200 dark:border-zinc-800">
-            <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
+          <div className="rounded-2xl bg-pink-light p-8 border border-pink-medium">
+            <h3 className="text-xl font-semibold text-brown-dark mb-3">
               Our Values
             </h3>
-            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="text-brown-medium leading-relaxed">
               Innovation, integrity, and excellence drive everything we do.
             </p>
           </div>
