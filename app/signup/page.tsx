@@ -1,82 +1,48 @@
-import Link from "next/link";
+"use client"
 
-export default function Signup() {
+import React from 'react'
+import Link from 'next/link'
+
+export default function SignupPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white px-6">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-semibold text-brown-dark mb-2">
-            Create Account
-          </h1>
-          <p className="text-brown-medium">
-            Join DEW today
-          </p>
-        </div>
+    <main className="min-h-screen bg-surface">
+      <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+        {/* Left: Image (full-height). Place your image in `public/` as `signup-skin.jpg` */}
+        <section className="hidden md:block relative h-screen">
+          <img src="/signup.jpeg" alt="Healthy skin" className="absolute inset-0 w-full h-full object-cover" />
+        </section>
 
-        <form className="space-y-5">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-brown-medium mb-2"
-            >
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full rounded-lg border border-pink-light bg-pink-light/30 px-4 py-3 text-brown-dark focus:border-pink-dark focus:outline-none transition-colors"
-              placeholder="John Doe"
-            />
+        {/* Right: Signup form */}
+        <section className="flex items-center justify-center p-8 h-screen">
+          <div className="w-full max-w-md mx-auto bg-card p-8 rounded-2xl border border-soft shadow-sm">
+            <h2 className="text-2xl font-sans font-semibold text-foreground mb-4">Create account</h2>
+            <p className="text-sm text-muted mb-6">Start your journey to better skin.</p>
+
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm text-muted mb-1">Full name</label>
+                <input type="text" className="w-full p-3 input" placeholder="Your name" />
+              </div>
+
+              <div>
+                <label className="block text-sm text-muted mb-1">Email</label>
+                <input type="email" className="w-full p-3 input" placeholder="you@example.com" />
+              </div>
+
+              <div>
+                <label className="block text-sm text-muted mb-1">Password</label>
+                <input type="password" className="w-full p-3 input" placeholder="Create a password" />
+              </div>
+
+              <div>
+                <button className="w-full btn-primary py-3 rounded-lg">Sign up</button>
+              </div>
+            </form>
+
+            <p className="text-sm text-muted mt-4">Already have an account? <Link href="/login" className="text-accent-strong">Log in</Link></p>
           </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-brown-medium mb-2"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full rounded-lg border border-pink-light bg-pink-light/30 px-4 py-3 text-brown-dark focus:border-pink-dark focus:outline-none transition-colors"
-              placeholder="you@example.com"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-brown-medium mb-2"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full rounded-lg border border-pink-light bg-pink-light/30 px-4 py-3 text-brown-dark focus:border-pink-dark focus:outline-none transition-colors"
-              placeholder="••••••••"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full rounded-full bg-pink-dark py-3 text-sm font-medium text-white hover:bg-pink-dark/90 transition-colors"
-          >
-            Sign Up
-          </button>
-        </form>
-
-        <p className="mt-6 text-center text-sm text-brown-medium">
-          Already have an account?{" "}
-          <Link
-            href="/login"
-            className="font-medium text-pink-dark hover:underline"
-          >
-            Login
-          </Link>
-        </p>
+        </section>
       </div>
-    </div>
-  );
+    </main>
+  )
 }

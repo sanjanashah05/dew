@@ -65,20 +65,20 @@ export default function SmartRoutineGenerator() {
     <div className="w-full max-w-5xl mx-auto space-y-8 font-sans">
       
       {/* --- INPUT SECTION (The Shelf) --- */}
-      <div className="bg-[#FAF9F6] p-8 rounded-3xl shadow-sm border border-[#EBE5E0]">
+      <div className="bg-surface p-8 rounded-3xl shadow-sm border border-soft">
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
           <div>
-            <h2 className="text-2xl font-serif font-medium text-[#5C4B43] flex items-center gap-2">
-              <span className="bg-[#FFE4E6] p-2 rounded-full text-[#BE123C]"><Sparkles size={18} /></span>
+            <h2 className="text-2xl font-sans font-medium text-foreground flex items-center gap-2">
+              <span className="bg-accent p-2 rounded-full text-accent-strong"><Sparkles size={18} /></span>
               Your Collection
             </h2>
-            <p className="text-[#8C7B75] mt-2 text-sm">What products do you have on your shelf?</p>
+            <p className="text-muted mt-2 text-sm">What products do you have on your shelf?</p>
           </div>
           
           <div className="relative w-full md:w-72">
              <select 
-                onChange={addToInventory}
-                className="w-full p-4 bg-white border border-[#EBE5E0] rounded-2xl text-[#5C4B43] focus:outline-none focus:ring-2 focus:ring-[#FDA4AF] focus:border-transparent appearance-none cursor-pointer shadow-sm transition-all"
+               onChange={addToInventory}
+               className="w-full p-4 bg-card border border-soft rounded-2xl text-foreground focus:outline-none appearance-none cursor-pointer shadow-sm transition-all"
              >
                 <option value="">+ Add Product</option>
                 {Object.entries(SKINCARE_RULES).map(([key, rule]) => (
@@ -87,7 +87,7 @@ export default function SmartRoutineGenerator() {
                    </option>
                 ))}
              </select>
-             <div className="absolute right-4 top-4.5 pointer-events-none text-[#A89890]">
+             <div className="absolute right-4 top-4.5 pointer-events-none text-muted">
                 <Plus size={18} />
              </div>
           </div>
@@ -95,9 +95,9 @@ export default function SmartRoutineGenerator() {
 
         {/* Selected Tags */}
         <div className="flex flex-wrap gap-3 mt-6">
-            {inventory.length === 0 && <span className="text-[#C4B5B0] text-sm italic pl-1">Shelf is empty... start adding!</span>}
+            {inventory.length === 0 && <span className="text-muted text-sm italic pl-1">Shelf is empty... start adding!</span>}
             {inventory.map(item => (
-                <span key={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#5C4B43] text-sm border border-[#EBE5E0] shadow-sm animate-in fade-in zoom-in duration-200">
+              <span key={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card text-foreground text-sm border border-soft shadow-sm animate-in fade-in zoom-in duration-200">
                     {SKINCARE_RULES[item].label}
                     <button onClick={() => removeFromInventory(item)} className="hover:text-rose-500 transition-colors ml-1">
                         <Trash2 size={14} />
@@ -122,7 +122,7 @@ export default function SmartRoutineGenerator() {
         {/* Night Routine (Beige/Stone Theme) */}
         <RoutineCard 
             title="Night Ritual" 
-            icon={<Moon size={20} className="text-[#8B7366]" />}
+          icon={<Moon size={20} className="text-muted" />}
             items={routines.pm} 
             theme="beige"
             emptyMsg="Add products to see your PM order"
@@ -136,18 +136,18 @@ export default function SmartRoutineGenerator() {
 function RoutineCard({ title, icon, items, theme, emptyMsg }: any) {
     // Theme configurations
     const themes = {
-        rose: {
-            container: "bg-[#FFF1F2]/60 border-[#FECDD3]", // Rose 50/100
-            title: "text-[#9F1239]", // Rose 900
-            bubble: "bg-[#FFE4E6] text-[#BE123C]", // Rose 100/700
-            text: "text-[#881337]" 
-        },
-        beige: {
-            container: "bg-[#F5F5F4]/70 border-[#E7E5E4]", // Stone 50/100
-            title: "text-[#57534E]", // Stone 600
-            bubble: "bg-[#E7E5E4] text-[#57534E]", // Stone 200/600
-            text: "text-[#44403C]"
-        }
+      rose: {
+        container: "bg-card border-soft",
+        title: "text-accent-strong",
+        bubble: "bg-accent text-accent-strong",
+        text: "text-accent-strong"
+      },
+      beige: {
+        container: "bg-surface border-soft",
+        title: "text-muted",
+        bubble: "bg-surface text-muted",
+        text: "text-foreground"
+      }
     }
 
     const t = theme === 'rose' ? themes.rose : themes.beige
@@ -155,8 +155,8 @@ function RoutineCard({ title, icon, items, theme, emptyMsg }: any) {
     return (
         <div className={clsx("p-8 rounded-3xl border flex flex-col h-full min-h-[450px] transition-all", t.container)}>
             <div className="flex items-center gap-3 mb-8">
-                <span className="p-2 bg-white rounded-full shadow-sm">{icon}</span>
-                <h3 className={clsx("font-serif text-xl font-medium tracking-wide", t.title)}>{title}</h3>
+              <span className="p-2 bg-white rounded-full shadow-sm">{icon}</span>
+              <h3 className={clsx("font-sans text-xl font-medium tracking-wide", t.title)}>{title}</h3>
                 <span className="ml-auto text-[10px] font-bold tracking-widest uppercase text-black/20 bg-white/60 px-3 py-1 rounded-full">
                     {items.length} Steps
                 </span>

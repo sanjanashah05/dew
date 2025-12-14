@@ -1,22 +1,108 @@
 @import "tailwindcss";
 
+/*
+  Centralized light pink / brown / beige palette.
+  This file provides CSS variables and a set of semantic helper
+  classes so the entire app shares a consistent look without
+  editing every component file.
+*/
+
 :root {
-  /* Light pink / beige theme */
-  --background: linear-gradient(135deg, #fff1f2 0%, #fbf7ef 50%, #f6efe6 100%);
-  --foreground: #3b2f2f; /* soft brown for text */
-  --muted: #7a5e53;
-  --accent: #f8d0d4;
+  /* Backgrounds */
+  --background: linear-gradient(135deg, #fff1f2 0%, #fbf3ef 50%, #f6efe6 100%);
+  --surface: #FBF6F4;    /* gentle off-white / beige */
+  --card: #FFF7F6;       /* very light card surface */
+
+  /* Typography */
+  --foreground: #3b2f2f; /* warm soft brown (primary text) */
+  --muted: #7a5e53;      /* muted brown for secondary text */
+
+  /* Accents */
+  --accent-pink: #F7C7CA;     /* soft pink accent */
+  --accent-strong: #9F2A3A;   /* deeper pink / rose for headings */
+
+  /* Borders / inputs */
+  --border: #E7DCD8;     /* light beige border */
+  --input-bg: #FFFDFD;   /* input background */
+
+  /* Shadows */
+  --shadow-sm: 0 6px 18px rgba(59,47,47,0.06);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Basic page styles */
+html,body {
+  height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Semantic helper classes ------------------------------------------------- */
+.text-foreground { color: var(--foreground) !important; }
+.text-muted { color: var(--muted) !important; }
+.text-accent-strong { color: var(--accent-strong) !important; }
+
+.bg-surface { background: var(--surface) !important; }
+.bg-card { background: var(--card) !important; }
+.bg-accent { background: var(--accent-pink) !important; }
+
+.border-soft { border-color: var(--border) !important; }
+.btn-accent { background: linear-gradient(180deg, var(--accent-strong), var(--accent-pink)); color: #fff; }
+
+/* Common utility overrides (reduce the need to change lots of component files).
+   These map common Tailwind utility classes like `bg-white` / `text-black` to
+   the new palette so many existing components will pick up the theme.
+*/
+.bg-white { background-color: var(--card) !important; }
+.text-black { color: var(--foreground) !important; }
+.border-white { border-color: var(--border) !important; }
+.shadow-sm { box-shadow: var(--shadow-sm) !important; }
+
+/* Form controls */
+input, textarea, select, .input {
+  background: var(--input-bg) !important;
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.75rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(159,42,58,0.08);
+  border-color: var(--accent-strong) !important;
+}
+
+/* Buttons */
+button, .btn {
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent-pink));
+  color: white;
+}
+
+/* Tiny helpers for small UI pieces */
+.badge-soft { background: rgba(159,42,58,0.08); color: var(--accent-strong); padding: 0.25rem 0.5rem; border-radius: 9999px; }
+
+/* Ensure logo/heading links look right */
+a { color: inherit; }
+
+/* Accessibility: maintain contrast for small text where needed */
+.muted-contrast { color: rgba(59,47,47,0.6) !important; }
+
+/* Accent helpers */
+.bg-accent-strong { background: var(--accent-strong) !important; }
+.border-accent { border-color: var(--accent-pink) !important; }
+
+/* Divider color helper */
+.bg-divider { background: var(--border) !important; }
+
+/* End of file */

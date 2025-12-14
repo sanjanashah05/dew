@@ -2,36 +2,31 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-surface">
       <div className="flex min-h-screen items-center justify-center px-6 pt-20">
-        <main className="mx-auto max-w-5xl text-center">
-          <h1 className="text-7xl font-thin tracking-wider text-brown-dark mb-6">
-            DEW
-          </h1>
-          <p className="text-2xl text-brown-medium mb-4 max-w-2xl mx-auto leading-relaxed">
-            Innovation Meets Excellence
-          </p>
-          <p className="text-lg text-beige-dark mb-12 max-w-xl mx-auto">
-            Transform the way you work and live with cutting-edge solutions
-            designed for the modern world.
-          </p>
+        <div className="mx-auto max-w-5xl text-center">
+          <h1 className="text-7xl font-thin tracking-wider text-accent-strong mb-6">DEW</h1>
+          <p className="text-2xl text-foreground mb-4 max-w-2xl mx-auto leading-relaxed">Innovation Meets Excellence</p>
+          <p className="text-lg text-muted mb-12 max-w-xl mx-auto">Transform the way you work and live with cutting-edge solutions designed for the modern world.</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/signup"
-              className="rounded-full bg-pink-dark px-8 py-3 text-sm font-medium text-white hover:bg-pink-dark/90 transition-colors"
-            >
-              Get Started
+          <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <Link href="/wars" className="block p-8 rounded-3xl border border-soft bg-card shadow-sm transform hover:scale-[1.02] transition">
+              <h2 className="text-2xl font-serif font-medium text-accent-strong">War</h2>
+              <p className="text-sm text-muted mt-2">Tactical overview and details.</p>
             </Link>
-            <Link
-              href="/services"
-              className="rounded-full border border-brown-light px-8 py-3 text-sm font-medium text-brown-dark hover:bg-pink-light transition-colors"
-            >
-              Learn More
+
+            <Link href="/analysis" className="block p-8 rounded-3xl border border-soft bg-card shadow-sm transform hover:scale-[1.02] transition">
+              <h2 className="text-2xl font-serif font-medium text-foreground">Analysis</h2>
+              <p className="text-sm text-muted mt-2">AI-driven insights and reports.</p>
+            </Link>
+
+            <Link href="/routine-builder" className="block p-8 rounded-3xl border border-soft bg-card shadow-sm transform hover:scale-[1.02] transition">
+              <h2 className="text-2xl font-serif font-medium text-accent-strong">Routine Builder</h2>
+              <p className="text-sm text-muted mt-2">Open the smart skincare routine builder.</p>
             </Link>
           </div>
-        </main>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
